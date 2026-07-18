@@ -1,38 +1,38 @@
 from django.shortcuts import render,redirect,get_object_or_404
-from myapp.models import Product
-from myapp.forms import ProductForm
+from myapp.models import Employee
+from myapp.forms import EmployeeForm
 # Create your views here.
-def addproduct(request):
-    pform = ProductForm()
+def addemployee(request):
+    eform = EmployeeForm()
     if request.method == 'POST':
-        pform = ProductForm(request.POST)
-        if pform.is_valid():
-            pform.save(commit=True)
+        eform = EmployeeForm(request.POST)
+        if eform.is_valid():
+            eform.save(commit=True)
             return redirect('/')
-    return render(request,'myapp/add.html',{'form':pform}) 
+    return render(request,'myapp/add.html',{'form':eform}) 
 
-def getproducts(request):
-    products = Product.objects.all()
-    return render(request,'myapp/products.html',{'PrdList':products})   
+def getemployees(request):
+    employees = Employee.objects.all()
+    return render(request,'myapp/employee.html',{'EmpList':employees})   
      
-def getproduct(request):
-    pid=request.GET.get('id')
-    product = get_object_or_404(Product,ProductId=pid)
-    return render(request,'myapp/find.html',{'prds':product})
+def getemployee(request):
+    eid=request.GET.get('id')
+    employee = get_object_or_404(Employee,EmployeeId=eid)
+    return render(request,'myapp/find.html',{'emps':employee})
 
-def editproduct(request,id):
-    product = get_object_or_404(Product,ProductId=id)
-    pform = ProductForm(instance=product)
+def editemployee(request,id):
+    employee = get_object_or_404(Employee,EmployeeId=id)
+    eform = EmployeeForm(instance=employee)
     if request.method=='POST':
-        pform = ProductForm(request.POST,instance=product)
-        if pform.is_valid():
-            pform.save()
+        eform = EmployeeForm(request.POST,instance=employee)
+        if eform.is_valid():
+            eform.save()
             return redirect('/')
-    return render(request,'myapp/edit.html',{'form':pform})
+    return render(request,'myapp/edit.html',{'form':eform})
 
-def deleteproduct(request,id):
-    product = get_object_or_404(Product,ProductId=id)
+def deleteemployee(request,id):
+    employee = get_object_or_404(Employee,EmployeeId=id)
     if request.method =="POST":
-        product.delete()
+        employee.delete()
         return redirect('/')
-    return render(request,'myapp/delete.html',{'prds':product})
+    return render(request,'myapp/delete.html',{'emps':employee})
