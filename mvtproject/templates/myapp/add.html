@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% load widget_tweaks %}
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Add</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row d-flex justify-content-center mt-5">
+            <div class="col-md-5">
+                    <div class="card mt-5">
+                        <div class="card-header bg-primary text-center font-weight-bold">
+                            <p class="display-6 text-white">Add Employee</p>
+                        </div>
+                        <div class="card-body">
+                            <form action="" method="POST">
+                                {%csrf_token%}
+                                {{form.EmployeeId|attr:"Placeholder : Employee ID"|add_class:"form-control mb-2"}}
+                                {{form.EmployeeName|attr:"Placeholder : Employee Name"|add_class:"form-control mb-2"}}
+                                {{form.EmployeeSalary|attr:"Placeholder : Employee Salary"|add_class:"form-control mb-2"}}
+                                <button class="btn btn-sm btn-primary">Add</button>
+                                <a href="/" class="btn btn-sm btn-success float-end">Back</a>
+                            </form>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
