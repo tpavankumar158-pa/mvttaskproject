@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{%load widget_tweaks%}
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Page Title</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css">
+</head>
+<body>
+ <div class="container">
+    <div class="row mt-5 d-flex justify-content-center">
+        <div class="col-md-5">
+            <div class="card mt-5">
+                <div class="card-header text-center text-white bg-primary">
+                        <p class="h2">Employee Details</p>
+                </div>
+                <div class="card-body">
+                    <p class="h3">Employee ID : {{emps.EmployeeId}}</p>
+                    <p class="h3">Employee Name : {{emps.EmployeeName}}</p>
+                    <p class="h3">Employee Salary : {{emps.EmployeeSalary}}</p>
+                    <a href="/" class="btn btn-outline-warning btn-sm">Back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>   
+</body>
+</html>
