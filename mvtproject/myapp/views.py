@@ -13,8 +13,8 @@ def addemployee(request):
 
 def getemployees(request):
     employees = Employee.objects.all()
-    return render(request,'myapp/employee.html',{'EmpList':employees})   
-     
+    return render(request, "myapp/employee.html", {"EmpList": employees})
+
 def getemployee(request):
     eid=request.GET.get('id')
     employee = get_object_or_404(Employee,EmployeeId=eid)
